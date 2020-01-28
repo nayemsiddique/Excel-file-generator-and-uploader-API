@@ -1,0 +1,18 @@
+<div class="alert alert-success" *ngIf='isUploaded'>
+    Download Success
+</div>
+
+<div class="container" style="padding-top: 50px;">
+    <div class="upload">
+         <input type="file"  accept=".xlsx,.csv" id="myFile" (change)="showFilePath($event)"/>
+         
+
+         <button type="button" class="btn btn-primary" (click)="onUploadButtonAction()">Upload</button>
+    </div>
+
+    <div class="download" style="margin-top: 10px;">
+        <input type="file" />
+        <button type="button" class="btn btn-primary" (click)="onDownloadButtonAction()">Download</button>
+    </div>
+</div>
+
