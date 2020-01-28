@@ -61,14 +61,14 @@ namespace FileUploadAndDownload.Controllers
 
         
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public IActionResult Get()
         {
 
            
             string[] colNames = new string[10];
-            colNames[0] = "id";
-            colNames[1] = "name";
+            colNames[0] = "Id";
+            colNames[1] = "Name";
            
           
             byte[] result;
