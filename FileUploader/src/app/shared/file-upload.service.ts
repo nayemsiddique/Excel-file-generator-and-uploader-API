@@ -10,13 +10,21 @@ export class FileUploadService {
   baseUrl:string="https://localhost:5001/api/v1/file"
   constructor(private httpclient:HttpClient) { }
 
-  upload(file:File){
+  
 
-  const formdata:FormData= new FormData();
-    const data: Blob = new Blob([file], { type: this.EXCEL_TYPE });
-    // formdata.append(file, data,file.name)
-    formdata.append(file.name,data)
-    var res=this.httpclient.post(this.baseUrl,formdata);
-    return res;
+  upload( file) {
+
+    const formdata: FormData = new FormData();
+    
+    formdata.append("file", file, file.name)
+    return this.httpclient.post(this.baseUrl, formdata);
+  
+  }
+
+
+  download(){
+    // return this.httpclient.get(this.baseUrl);
+
+
   }
 }

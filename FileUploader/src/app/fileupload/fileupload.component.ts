@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class FileuploadComponent implements OnInit {
 
-  constructor(private fileUpload:FileUploadService,private httpclient:HttpClient) { }
+  constructor(private fileUploadService:FileUploadService ,private httpclient:HttpClient) { }
 
   EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
   baseUrl: string = "https://localhost:5001/api/v1/file"
@@ -19,54 +19,53 @@ export class FileuploadComponent implements OnInit {
 
   onUploadButtonAction(){
     
-    // this.isUploaded=true;
-    //  this.fileUpload.upload(this.filePath).subscribe(x=>{
-    //    console.log(x);
-    //  });
-    this.upload()
+    this.fileUploadService.upload(this.file).subscribe(x=>{console.log(x)})
+    // this.upload();
   }
 
   showFilePath(event:any){
     this.file=<File>event.target.files[0];
-    // console.log(this.filePath.name)
+
 
     
   }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/form-data'
-    })
-  }
+  // httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type': 'application/form-data'
+  //   })
+  // }
 
-  upload() {
+  // upload() {
 
-    const formdata: FormData = new FormData();
-    // const data: Blob = new Blob([file], { type: this.EXCEL_TYPE });
-    // console.log(file)
-    // console.log(file.name)
-    formdata.append("file",this.file,this.file.name)
-    var res = this.httpclient.post(this.baseUrl, formdata);
-    // console.log(res)
-    res.subscribe(x=>{
-      console.log(x);
-    })
-  }
+  //   const formdata: FormData = new FormData();
+  //   // const data: Blob = new Blob([file], { type: this.EXCEL_TYPE });
+  //   // console.log(file)
+  //   // console.log(file.name)
+  //   formdata.append("file",this.file)
+  //   var res = this.httpclient.post(this.baseUrl, formdata);
+  //   // console.log(res)
+  //   res.subscribe(x=>{
+  //     console.log(x);
+  //   })
+  // }
 
   
 
 
   // onDownloadButtonAction(){
-  //   this.download();
-  // }
-  // download(){
-  //   // let col:String[]=["Id","Name","Phone"];
-  //   this.httpclient.post(this.baseUrl+"/download",["id","name","student"]).subscribe(x=>{
-  //     console.log(x);
-  //   });
+  //   // this.httpclient.post(this.baseUrl, { "colnames": ["id", "name"] }).subscribe(x => {
+  //   //   console.log(x);
+  //   // });
+  //   //  this.httpclient.get(this.baseUrl).subscribe(x=>console.log(x));
+
+  //    this.fileUploadService.download().subscribe(x=>console.log(x));
   // }
 
-  
 
+
+
+
+  // TRY
 
 }

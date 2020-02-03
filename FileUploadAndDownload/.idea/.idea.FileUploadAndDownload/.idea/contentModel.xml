@@ -16,6 +16,7 @@
         </e>
         <e p="FileUploadAndDownload.csproj" t="IncludeRecursive" />
         <e p="Model" t="Include">
+          <e p="Columns.cs" t="Include" />
           <e p="ExcelData.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -29,6 +30,10 @@
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Service" t="Include">
+          <e p="FileOperationService.cs" t="Include" />
+          <e p="IFileOperationService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="WeatherForecast.cs" t="Include" />
